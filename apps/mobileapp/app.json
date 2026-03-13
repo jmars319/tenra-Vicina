@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Rally",
+    "slug": "rally-mobileapp",
+    "scheme": "rally",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jamarq.rally.mobileapp"
+    },
+    "android": {
+      "package": "com.jamarq.rally.mobileapp"
+    }
+  }
+}

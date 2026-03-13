@@ -1,0 +1,48 @@
+# macOS
+.DS_Store
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# JavaScript / TypeScript build outputs
+dist/
+build/
+coverage/
+.cache/
+.turbo/
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+
+# Vite
+vite.config.ts.timestamp-*
+
+# Tauri / Rust
+target/
+**/src-tauri/target/
+**/src-tauri/gen/
+
+# Expo / React Native
+.expo/
+.expo-shared/
+apps/mobileapp/android/
+apps/mobileapp/ios/
+web-build/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# Logs
+*.log
+
+# Legacy archive generated artifacts
+archive/version-minus-1/node_modules/
+archive/version-minus-1/.DS_Store

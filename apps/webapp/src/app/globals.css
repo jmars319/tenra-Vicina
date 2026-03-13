@@ -1,0 +1,127 @@
+:root {
+  color-scheme: light;
+  font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #f3f0e8;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.hero,
+.panel {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.hero {
+  padding: 3rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(16, 59, 64, 0.96), rgba(27, 94, 32, 0.88));
+  box-shadow: 0 28px 80px rgba(16, 59, 64, 0.22);
+}
+
+.hero h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.95;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d7f0d8;
+}
+
+.lede {
+  max-width: 40rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eff8ed;
+}
+
+.panel {
+  margin-top: 1.75rem;
+  padding: 2rem;
+  border: 1px solid rgba(16, 59, 64, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.panel-header h2 {
+  margin: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: #dde9dd;
+  color: #103b40;
+  font-size: 0.9rem;
+}
+
+.muted {
+  margin: 0 0 1.25rem;
+  color: #4d5f60;
+}
+
+.venue-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.venue-card {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: #fffdf8;
+  border: 1px solid rgba(16, 59, 64, 0.1);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .hero,
+  .panel {
+    padding: 1.25rem;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

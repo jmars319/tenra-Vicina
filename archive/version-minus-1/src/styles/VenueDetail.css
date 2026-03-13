@@ -1,0 +1,146 @@
+.venue-header {
+  margin-bottom: 24px;
+}
+
+.venue-header h1 {
+  margin-bottom: 8px;
+}
+
+.counts-summary {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.count-item {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.count-item.here {
+  color: #4CAF50;
+}
+
+.count-item.heading {
+  color: #FF9800;
+}
+
+.user-status {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-status p {
+  font-size: 16px;
+}
+
+.check-in-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.check-in-buttons button {
+  flex: 1;
+}
+
+.chat-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-section h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.messages-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.message {
+  margin-bottom: 16px;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.message-author {
+  font-size: 14px;
+  color: #000;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.message-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.message-form {
+  display: flex;
+  gap: 8px;
+}
+
+.message-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.btn-send {
+  padding: 12px 24px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-send:hover {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .check-in-buttons {
+    flex-direction: column;
+  }
+
+  .user-status {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+}

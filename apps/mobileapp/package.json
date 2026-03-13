@@ -1,0 +1,19 @@
+{
+  "name": "@rally/mobileapp",
+  "private": true,
+  "version": "0.1.0",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "expo start --clear",
+    "build": "pnpm run typecheck",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@rally/config": "workspace:*",
+    "@rally/domain": "workspace:*",
+    "@rally/ui": "workspace:*",
+    "expo": "55.0.6",
+    "react": "19.2.4",
+    "react-native": "0.84.1"
+  }
+}

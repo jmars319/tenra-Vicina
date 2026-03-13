@@ -1,0 +1,43 @@
+{
+  "name": "rally-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "bootstrap": "./scripts/bootstrap.sh",
+    "check:env": "./scripts/check-env.sh",
+    "check:packages": "./scripts/check-packages.sh",
+    "dev:web": "./scripts/dev-web.sh",
+    "dev:desktop": "./scripts/dev-desktop.sh",
+    "dev:mobile": "./scripts/dev-mobile.sh",
+    "dev:both": "./scripts/dev-both.sh",
+    "build:web": "pnpm run check:packages && pnpm --filter @rally/webapp run build",
+    "build:desktop": "pnpm run check:packages && pnpm --filter @rally/desktopapp run build:webview && pnpm --filter @rally/desktopapp exec cargo check --manifest-path src-tauri/Cargo.toml",
+    "build:mobile": "pnpm run check:packages && pnpm --filter @rally/mobileapp run build",
+    "lint": "pnpm exec eslint . --max-warnings=0",
+    "typecheck": "pnpm run check:packages && pnpm --filter @rally/webapp run typecheck && pnpm --filter @rally/desktopapp run typecheck && pnpm --filter @rally/mobileapp run typecheck",
+    "verify:web": "./scripts/verify-web.sh",
+    "verify:desktop": "./scripts/verify-desktop.sh",
+    "verify:mobile": "./scripts/verify-mobile.sh",
+    "verify:all": "./scripts/verify-all.sh",
+    "doctor": "./scripts/doctor.sh"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "@next/eslint-plugin-next": "16.1.6",
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@typescript-eslint/eslint-plugin": "8.57.0",
+    "@typescript-eslint/parser": "8.57.0",
+    "concurrently": "9.2.1",
+    "eslint": "9.39.4",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "globals": "17.4.0",
+    "typescript": "5.9.3"
+  }
+}

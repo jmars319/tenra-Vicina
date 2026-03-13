@@ -1,0 +1,27 @@
+{
+  "name": "@rally/desktopapp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tauri dev",
+    "dev:webview": "vite",
+    "build": "tauri build --debug",
+    "build:webview": "vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "verify": "pnpm run typecheck && pnpm run build:webview && cargo check --manifest-path src-tauri/Cargo.toml"
+  },
+  "dependencies": {
+    "@rally/config": "workspace:*",
+    "@rally/domain": "workspace:*",
+    "@rally/ui": "workspace:*",
+    "@tauri-apps/api": "2.10.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.10.1",
+    "@vitejs/plugin-react": "6.0.1",
+    "vite": "8.0.0"
+  }
+}
