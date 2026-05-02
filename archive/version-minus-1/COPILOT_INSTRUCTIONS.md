@@ -443,7 +443,7 @@ Create `public/manifest.json`:
 {
   "name": "Vicina",
   "short_name": "Vicina",
-  "description": "Local, live, real",
+  "description": "What's happening nearby",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

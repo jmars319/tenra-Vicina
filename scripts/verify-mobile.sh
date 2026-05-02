@@ -6,7 +6,7 @@ source "$(dirname "$0")/_common.sh"
 need_cmd pnpm
 ensure_root_files
 
-log "Verifying Vicina mobileapp placeholder"
+log "Verifying Vicina mobileapp"
 run_in_root pnpm run check:packages
 run_in_root pnpm --filter @vicina/mobileapp run typecheck
 run_in_root pnpm --filter @vicina/mobileapp run build

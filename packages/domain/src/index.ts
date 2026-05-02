@@ -20,6 +20,103 @@ export type CheckInIntent = (typeof CHECK_IN_INTENTS)[number];
 export const CHECK_IN_DURATION_MINUTES = 90;
 export const CHECK_IN_DURATION_MS = CHECK_IN_DURATION_MINUTES * 60 * 1000;
 
+export const SIGNAL_CATEGORIES = [
+  "food-coffee",
+  "music-nightlife",
+  "outdoors",
+  "study-work",
+  "games",
+  "help-favors",
+  "general"
+] as const;
+export type SignalCategory = (typeof SIGNAL_CATEGORIES)[number];
+
+export const SIGNAL_CATEGORY_LABELS: Record<SignalCategory, string> = {
+  "food-coffee": "Food / coffee",
+  "music-nightlife": "Music / nightlife",
+  outdoors: "Outdoors",
+  "study-work": "Study / work",
+  games: "Games",
+  "help-favors": "Help / favors",
+  general: "General"
+};
+
+export const SIGNAL_STATUSES = ["active", "expired", "cancelled"] as const;
+export type SignalStatus = (typeof SIGNAL_STATUSES)[number];
+
+export const CONTENT_STATUSES = ["visible", "hidden", "reported"] as const;
+export type ContentStatus = (typeof CONTENT_STATUSES)[number];
+
+export const DISCOVERY_RADIUS_MILES = [1, 3, 5, 10] as const;
+export type DiscoveryRadiusMiles = (typeof DISCOVERY_RADIUS_MILES)[number];
+
+export const DEFAULT_DISCOVERY_RADIUS_MILES: DiscoveryRadiusMiles = 3;
+export const DEFAULT_SIGNAL_DURATION_HOURS = 4;
+export const MAX_SIGNAL_DURATION_HOURS = 24;
+export const MAX_SIGNAL_DURATION_MS = MAX_SIGNAL_DURATION_HOURS * 60 * 60 * 1000;
+
+export interface VicinaProfile {
+  id: Id;
+  displayName: string;
+  bio?: string;
+  createdAtMs: TimestampMs;
+  updatedAtMs: TimestampMs;
+}
+
+export interface VicinaSignal {
+  id: Id;
+  authorId: Id;
+  authorDisplayName: string;
+  title: string;
+  description: string;
+  category: SignalCategory;
+  approximateLocationLabel: string;
+  coordinates: LatLng;
+  startsAtMs: TimestampMs;
+  expiresAtMs: TimestampMs;
+  visibilityRadiusMiles: DiscoveryRadiusMiles;
+  status: SignalStatus;
+  contentStatus: ContentStatus;
+  createdAtMs: TimestampMs;
+  updatedAtMs: TimestampMs;
+}
+
+export interface SignalInterest {
+  id: Id;
+  signalId: Id;
+  userId: Id;
+  createdAtMs: TimestampMs;
+}
+
+export interface SignalComment {
+  id: Id;
+  signalId: Id;
+  authorId: Id;
+  authorDisplayName: string;
+  body: string;
+  contentStatus: ContentStatus;
+  createdAtMs: TimestampMs;
+  updatedAtMs: TimestampMs;
+}
+
+export interface UserBlock {
+  blockerId: Id;
+  blockedUserId: Id;
+  createdAtMs: TimestampMs;
+}
+
+export interface SignalReport {
+  id: Id;
+  reporterId: Id;
+  signalId?: Id;
+  commentId?: Id;
+  reportedUserId?: Id;
+  reason: string;
+  details?: string;
+  status: "open" | "reviewed" | "closed";
+  createdAtMs: TimestampMs;
+}
+
 export interface PilotVenue {
   id: Id;
   name: string;

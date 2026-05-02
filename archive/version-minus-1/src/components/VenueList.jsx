@@ -70,7 +70,7 @@ export default function VenueList() {
         </button>
       </div>
       <p style={{ marginBottom: '24px', color: '#666' }}>
-        Local, live, real
+        What's happening nearby
       </p>
 
       <div className="venue-grid">

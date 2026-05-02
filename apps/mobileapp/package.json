@@ -2,18 +2,35 @@
   "name": "@vicina/mobileapp",
   "private": true,
   "version": "0.1.0",
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "scripts": {
     "dev": "expo start --clear",
     "build": "pnpm run typecheck",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@expo/dom-webview": "^55.0.5",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@supabase/supabase-js": "^2.105.1",
+    "@tanstack/react-query": "^5.100.8",
     "@vicina/config": "workspace:*",
     "@vicina/domain": "workspace:*",
+    "@vicina/shared-types": "workspace:*",
     "@vicina/ui": "workspace:*",
-    "expo": "55.0.6",
-    "react": "19.2.4",
-    "react-native": "0.84.1"
+    "@vicina/validation": "workspace:*",
+    "expo": "55.0.19",
+    "expo-constants": "^55.0.15",
+    "expo-linking": "^55.0.14",
+    "expo-location": "^55.1.8",
+    "expo-router": "^55.0.13",
+    "expo-status-bar": "^55.0.5",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "0.83.6",
+    "react-native-gesture-handler": "^2.30.1",
+    "react-native-safe-area-context": "^5.6.2",
+    "react-native-screens": "^4.23.0",
+    "react-native-url-polyfill": "^3.0.0",
+    "zod": "4.3.6"
   }
 }
