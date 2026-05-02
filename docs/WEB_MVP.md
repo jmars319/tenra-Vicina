@@ -1,23 +1,38 @@
 # Web MVP
 
-The current product surface is `apps/webapp`.
+The current primary product surface is `apps/webapp`.
 
 ## Decision
 
-Vicina now starts with a local-first web MVP instead of immediately wiring Firebase or another hosted backend. The web app uses Next.js route handlers under `/api/vicina/*` and a gitignored JSON dev store at `apps/webapp/.data/vicina-dev-store.json`.
+Vicina is now web-first. The Next.js App Router scaffold presents the smallest
+stable hyperlocal coordination loop:
 
-This keeps the core user loop testable without credentials:
+- Browse active nearby signals at `/nearby`.
+- Filter by distance, category, and time.
+- Sort explicitly by nearest, soonest, or newest.
+- Create a short-lived signal at `/create`.
+- View signal detail, interest, thread, report, and block actions at `/signal/[id]`.
+- See a simple local profile at `/profile`.
 
-- Edit a local display name.
-- Select a pilot venue in the Innovation Quarter.
-- Check in for a 90-minute window.
-- Leave the current venue.
-- See active presence and expiry timing.
-- Send and read venue-scoped messages.
+The web app uses browser-local mock signal data in
+`apps/webapp/src/lib/mock/signals.ts`. This keeps the interface testable before
+the web surface is wired to Supabase. The older local API route handlers remain
+available for reference while the signal model settles.
 
-## Why
+## Brand
 
-The archived V-1 app proved the rough Firebase shape, but the new monorepo needed a clean Vicina product loop first. Once the interaction model is stable, the API contracts and validation package give us a narrower backend swap path.
+The root logo inspiration image has been archived at
+`assets/branding/vicina-logo-reference.jpg`. The shipped web UI uses a clean SVG
+brand mark based on the useful parts of that reference: map pin, nearby people,
+muted green, neutral surfaces, and generous spacing.
+
+## Constraints
+
+- No likes.
+- No follower counts.
+- No algorithmic popularity ranking.
+- No public exact coordinates.
+- No infinite-scroll engagement loop.
 
 ## Run
 
@@ -34,7 +49,6 @@ pnpm doctor
 
 ## Next Backend Cut
 
-When moving beyond local testing, keep the API routes and replace `apps/webapp/src/lib/vicina-store.ts` with a hosted persistence adapter. The highest-leverage next backend decision is between:
-
-- Firebase: fastest match to V-1 behavior and realtime primitives.
-- Supabase/Postgres: better relational model and analytics path if Vicina becomes more than a pilot.
+Supabase is the intended backend foundation. When the web interaction model is
+stable, replace the browser-local mock store with a Supabase-backed adapter using
+the existing `supabase/migrations/20260502120000_vicina_mvp.sql` schema.

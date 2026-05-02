@@ -7,11 +7,12 @@ platform.
 
 ## Repo Layout
 
-- `apps/webapp`: Next.js web shell for the likely first production surface.
+- `apps/webapp`: Next.js App Router web MVP scaffold and primary product surface.
 - `apps/desktopapp`: Vite + React + Tauri desktop shell.
 - `apps/mobileapp`: Expo React Native MVP scaffold with Expo Router.
 - `packages/*`: Shared Vicina packages for domain logic, contracts, validation, realtime, auth, geo, privacy, UI, and config.
-- `supabase/`: SQL migration and seed data for the mobile MVP backend.
+- `assets/branding/`: Archived design-reference assets.
+- `supabase/`: SQL migration and seed data for the Supabase MVP backend.
 - `scripts/`: Root lifecycle commands for bootstrap, development, verification, and environment checks.
 - `docs/`: Short operational docs for developers working inside the scaffold.
 - `archive/version-minus-1/`: Archived Version -1 prototype material preserved outside the new canonical layout.
@@ -28,10 +29,74 @@ Useful commands:
 
 ```bash
 pnpm dev:mobile
+pnpm dev:web
+pnpm dev:start
+pnpm dev:status
+pnpm dev:verify
+pnpm dev:stop
+pnpm verify:web
 pnpm verify:mobile
 pnpm typecheck
 pnpm lint
 pnpm doctor
+```
+
+## Dev Harness
+
+`pnpm dev:web` remains the direct interactive Next.js dev command. For repeatable
+start/stop/status flows, use the managed harness:
+
+```bash
+pnpm dev:start
+pnpm dev:status
+pnpm dev:restart
+pnpm dev:stop
+pnpm dev:verify
+```
+
+The managed harness starts only the web app because Vicina does not currently
+have a separate local backend server. It writes PID files and logs under `.dev/`,
+checks `/api/health`, smoke-tests the core web routes, and stops its own process
+cleanly.
+
+Local overrides are optional:
+
+```bash
+mkdir -p .dev
+cp scripts/dev-config.example.sh .dev/dev-config.sh
+```
+
+Edit `.dev/dev-config.sh` to change the managed web port, host, health path, or
+timeouts. The default managed port is `3002` so it can coexist with other local
+projects that commonly use `3000`.
+
+## Web MVP
+
+The primary web surface uses Next.js App Router with a small design system under
+`apps/webapp/src/components`:
+
+- `branding`: SVG Vicina mark, wordmark, and lockup based on the reference image
+- `layout`: shared app header and page shell
+- `ui`: Button, Card, Chip, Input, and Textarea primitives
+- `signal`: reusable signal cards and filter controls
+
+Routes:
+
+- `/`: landing/hero with full Vicina lockup
+- `/nearby`: active signals with distance, category, time, and explicit sort controls
+- `/create`: lightweight signal creation form with Zod validation
+- `/profile`: display name, bio, and local user's active signals
+- `/signal/[id]`: signal detail, interest button, thread, report, and block actions
+
+The web MVP uses browser-local mock data from
+`apps/webapp/src/lib/mock/signals.ts` so it can run before Supabase is wired into
+the web app. It intentionally avoids follower counts, likes, popularity ranking,
+and infinite-scroll mechanics.
+
+Run it with:
+
+```bash
+pnpm dev:web
 ```
 
 ## Mobile MVP
@@ -130,6 +195,10 @@ replying, reporting, and blocking require Supabase auth.
 
 ## Smoke Checklist
 
+- Web root renders the full brand lockup.
+- Web header renders icon + `Vicina` without the tagline.
+- Web `/nearby`, `/create`, `/profile`, and `/signal/[id]` routes render.
+- Web create signal form validates required fields and 24-hour max expiration.
 - Auth screen renders at `/auth`.
 - Nearby tab renders seeded active signals.
 - Radius controls support 1, 3, 5, and 10 miles.

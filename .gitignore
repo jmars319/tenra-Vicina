@@ -11,6 +11,9 @@ build/
 coverage/
 .cache/
 .data/
+.dev/dev-config.sh
+.dev/logs/
+.dev/pids/
 .turbo/
 *.tsbuildinfo
 

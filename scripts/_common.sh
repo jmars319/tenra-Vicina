@@ -4,16 +4,18 @@ set -euo pipefail
 COMMON_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${COMMON_DIR}/.." && pwd)"
 
+source "${COMMON_DIR}/script-utils.sh"
+
 log() {
-  printf '[vicina] %s\n' "$*"
+  log_info "$*"
 }
 
 warn() {
-  printf '[vicina][warn] %s\n' "$*" >&2
+  log_warn "$*"
 }
 
 fail() {
-  printf '[vicina][error] %s\n' "$*" >&2
+  log_error "$*"
   exit 1
 }
 
