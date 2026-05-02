@@ -1,4 +1,4 @@
-# Rally V-1
+# Vicina V-1
 
 Real-time social presence platform for spontaneous meetups in Winston-Salem Innovation Quarter.
 

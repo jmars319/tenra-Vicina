@@ -1,6 +1,6 @@
-import { APP_NAME } from "@rally/config";
-import { PILOT_VENUES, type MeetupStatus } from "@rally/domain";
-import { brandTokens } from "@rally/ui";
+import { APP_NAME, APP_TAGLINE } from "@vicina/config";
+import { PILOT_VENUES, type MeetupStatus } from "@vicina/domain";
+import { brandTokens } from "@vicina/ui";
 
 const initialStatus: MeetupStatus = "draft";
 
@@ -14,10 +14,10 @@ export default function App() {
       }}
     >
       <section className="desktop-card">
-        <p className="desktop-kicker">Rally desktopapp scaffold</p>
+        <p className="desktop-kicker">{APP_TAGLINE}</p>
         <h1>{APP_NAME} desktopapp is wired.</h1>
         <p className="desktop-copy">
-          This Vite + React + Tauri shell is connected to the shared Rally
+          This Vite + React + Tauri shell is connected to the shared Vicina
           packages and ready for future desktop-specific work.
         </p>
         <div className="desktop-metrics">

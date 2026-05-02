@@ -7,5 +7,5 @@ need_cmd pnpm
 need_cmd cargo
 ensure_root_files
 
-log "Starting Rally desktopapp"
-run_in_root pnpm --filter @rally/desktopapp run dev
+log "Starting Vicina desktopapp"
+run_in_root pnpm --filter @vicina/desktopapp run dev

@@ -7,7 +7,7 @@ need_cmd pnpm
 need_cmd cargo
 ensure_root_files
 
-log "Verifying Rally desktopapp"
+log "Verifying Vicina desktopapp"
 run_in_root pnpm run check:packages
-run_in_root pnpm --filter @rally/desktopapp run verify
+run_in_root pnpm --filter @vicina/desktopapp run verify
 log "Desktopapp verification passed"

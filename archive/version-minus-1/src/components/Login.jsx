@@ -52,8 +52,8 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1>Rally</h1>
-        <p className="login-subtitle">Where are people right now?</p>
+        <h1>Vicina</h1>
+        <p className="login-subtitle">Local, live, real</p>
 
         <form onSubmit={handleSubmit}>
           {isSignup && (

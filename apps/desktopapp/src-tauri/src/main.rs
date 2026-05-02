@@ -3,5 +3,5 @@
 fn main() {
     tauri::Builder::default()
         .run(tauri::generate_context!())
-        .expect("failed to run Rally desktopapp");
+        .expect("failed to run Vicina desktopapp");
 }

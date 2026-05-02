@@ -1,4 +1,4 @@
-import type { LatLng } from "@rally/shared-types";
+import type { LatLng } from "@vicina/shared-types";
 
 export function coarseLocation(point: LatLng, precision = 2): LatLng {
   return {

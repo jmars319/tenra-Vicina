@@ -1,9 +1,12 @@
-export const APP_NAME = "Rally";
+export const APP_NAME = "Vicina";
+
+export const APP_TAGLINE = "Local, live, real";
 
 export const DEFAULT_DISCOVERY_RADIUS_KM = 3;
 
 export const PUBLIC_ENV_KEYS = [
   "NEXT_PUBLIC_APP_NAME",
+  "NEXT_PUBLIC_APP_TAGLINE",
   "NEXT_PUBLIC_API_BASE_URL",
   "NEXT_PUBLIC_MAP_PROVIDER",
   "NEXT_PUBLIC_MAP_STYLE_ID",
@@ -15,6 +18,7 @@ export const PUBLIC_ENV_KEYS = [
 export function readPublicConfig(env: Record<string, string | undefined>) {
   return {
     appName: env.NEXT_PUBLIC_APP_NAME ?? APP_NAME,
+    appTagline: env.NEXT_PUBLIC_APP_TAGLINE ?? APP_TAGLINE,
     apiBaseUrl: env.NEXT_PUBLIC_API_BASE_URL ?? "",
     defaultRadiusKm:
       Number(env.NEXT_PUBLIC_DEFAULT_RADIUS_KM ?? DEFAULT_DISCOVERY_RADIUS_KM) ||

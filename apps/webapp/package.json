@@ -1,5 +1,5 @@
 {
-  "name": "@rally/webapp",
+  "name": "@vicina/webapp",
   "private": true,
   "version": "0.1.0",
   "scripts": {
@@ -9,9 +9,13 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@rally/config": "workspace:*",
-    "@rally/domain": "workspace:*",
-    "@rally/ui": "workspace:*",
+    "@vicina/api-contracts": "workspace:*",
+    "@vicina/config": "workspace:*",
+    "@vicina/domain": "workspace:*",
+    "@vicina/shared-types": "workspace:*",
+    "@vicina/ui": "workspace:*",
+    "@vicina/validation": "workspace:*",
+    "lucide-react": "0.468.0",
     "next": "16.1.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"

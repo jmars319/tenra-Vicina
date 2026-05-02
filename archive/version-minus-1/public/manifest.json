@@ -1,7 +1,7 @@
 {
-  "name": "Rally",
-  "short_name": "Rally",
-  "description": "Where are people right now?",
+  "name": "Vicina",
+  "short_name": "Vicina",
+  "description": "Local, live, real",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

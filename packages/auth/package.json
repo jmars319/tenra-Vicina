@@ -1,5 +1,5 @@
 {
-  "name": "@rally/auth",
+  "name": "@vicina/auth",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -12,7 +12,7 @@
     }
   },
   "dependencies": {
-    "@rally/shared-types": "workspace:*"
+    "@vicina/shared-types": "workspace:*"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

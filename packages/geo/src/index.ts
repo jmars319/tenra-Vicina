@@ -1,4 +1,4 @@
-import type { LatLng } from "@rally/shared-types";
+import type { LatLng } from "@vicina/shared-types";
 
 const EARTH_RADIUS_KM = 6371;
 

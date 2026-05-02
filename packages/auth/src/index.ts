@@ -1,4 +1,4 @@
-import type { Id } from "@rally/shared-types";
+import type { Id } from "@vicina/shared-types";
 
 export interface SessionUser {
   id: Id;

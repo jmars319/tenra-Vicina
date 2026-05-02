@@ -55,7 +55,7 @@ export default function VenueList() {
   if (loading) {
     return (
       <div className="container">
-        <h1>Rally</h1>
+        <h1>Vicina</h1>
         <p>Loading venues...</p>
       </div>
     );
@@ -64,13 +64,13 @@ export default function VenueList() {
   return (
     <div className="container">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h1>Rally</h1>
+        <h1>Vicina</h1>
         <button onClick={handleLogout} className="btn-secondary">
           Log Out
         </button>
       </div>
       <p style={{ marginBottom: '24px', color: '#666' }}>
-        Where are people right now?
+        Local, live, real
       </p>
 
       <div className="venue-grid">

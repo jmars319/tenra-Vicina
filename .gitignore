@@ -10,6 +10,7 @@ dist/
 build/
 coverage/
 .cache/
+.data/
 .turbo/
 *.tsbuildinfo
 

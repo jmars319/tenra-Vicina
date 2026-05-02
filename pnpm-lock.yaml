@@ -50,13 +50,13 @@ importers:
 
   apps/desktopapp:
     dependencies:
-      '@rally/config':
+      '@vicina/config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@rally/domain':
+      '@vicina/domain':
         specifier: workspace:*
         version: link:../../packages/domain
-      '@rally/ui':
+      '@vicina/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@tauri-apps/api':
@@ -81,13 +81,13 @@ importers:
 
   apps/mobileapp:
     dependencies:
-      '@rally/config':
+      '@vicina/config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@rally/domain':
+      '@vicina/domain':
         specifier: workspace:*
         version: link:../../packages/domain
-      '@rally/ui':
+      '@vicina/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       expo:
@@ -102,15 +102,27 @@ importers:
 
   apps/webapp:
     dependencies:
-      '@rally/config':
+      '@vicina/api-contracts':
+        specifier: workspace:*
+        version: link:../../packages/api-contracts
+      '@vicina/config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@rally/domain':
+      '@vicina/domain':
         specifier: workspace:*
         version: link:../../packages/domain
-      '@rally/ui':
+      '@vicina/shared-types':
+        specifier: workspace:*
+        version: link:../../packages/shared-types
+      '@vicina/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@vicina/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+      lucide-react:
+        specifier: 0.468.0
+        version: 0.468.0(react@19.2.4)
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -123,16 +135,16 @@ importers:
 
   packages/api-contracts:
     dependencies:
-      '@rally/domain':
+      '@vicina/domain':
         specifier: workspace:*
         version: link:../domain
-      '@rally/shared-types':
+      '@vicina/shared-types':
         specifier: workspace:*
         version: link:../shared-types
 
   packages/auth:
     dependencies:
-      '@rally/shared-types':
+      '@vicina/shared-types':
         specifier: workspace:*
         version: link:../shared-types
 
@@ -140,28 +152,28 @@ importers:
 
   packages/domain:
     dependencies:
-      '@rally/shared-types':
+      '@vicina/shared-types':
         specifier: workspace:*
         version: link:../shared-types
 
   packages/geo:
     dependencies:
-      '@rally/shared-types':
+      '@vicina/shared-types':
         specifier: workspace:*
         version: link:../shared-types
 
   packages/privacy:
     dependencies:
-      '@rally/shared-types':
+      '@vicina/shared-types':
         specifier: workspace:*
         version: link:../shared-types
 
   packages/realtime:
     dependencies:
-      '@rally/domain':
+      '@vicina/domain':
         specifier: workspace:*
         version: link:../domain
-      '@rally/shared-types':
+      '@vicina/shared-types':
         specifier: workspace:*
         version: link:../shared-types
 
@@ -171,7 +183,7 @@ importers:
 
   packages/validation:
     dependencies:
-      '@rally/domain':
+      '@vicina/domain':
         specifier: workspace:*
         version: link:../domain
       zod:
@@ -2844,6 +2856,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-react@0.468.0:
+    resolution: {integrity: sha512-6koYRhnM2N0GGZIdXzSeiNwguv1gt/FAjZOiPl76roBi3xKEXa4WmfpxgQwTTL4KipXjefrnf3oV4IsYhi4JFA==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
   makeerror@1.0.12:
     resolution: {integrity: sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg==}
@@ -7095,6 +7112,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-react@0.468.0(react@19.2.4):
+    dependencies:
+      react: 19.2.4
 
   makeerror@1.0.12:
     dependencies:

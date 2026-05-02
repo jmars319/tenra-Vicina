@@ -1,17 +1,17 @@
 {
   "expo": {
-    "name": "Rally",
-    "slug": "rally-mobileapp",
-    "scheme": "rally",
+    "name": "Vicina",
+    "slug": "vicina-mobileapp",
+    "scheme": "vicina",
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.jamarq.rally.mobileapp"
+      "bundleIdentifier": "com.jamarq.vicina.mobileapp"
     },
     "android": {
-      "package": "com.jamarq.rally.mobileapp"
+      "package": "com.jamarq.vicina.mobileapp"
     }
   }
 }

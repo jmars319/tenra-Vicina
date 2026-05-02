@@ -9,7 +9,7 @@
 ## Shared Packages
 
 - `packages/shared-types`: Core shared primitives such as IDs, timestamps, and coordinates.
-- `packages/domain`: Rally meetup lifecycle concepts plus starter venue data translated from Version -1.
+- `packages/domain`: Vicina meetup lifecycle concepts plus starter venue data translated from Version -1.
 - `packages/api-contracts`: Shared request and event contracts.
 - `packages/validation`: Runtime parsing and validation helpers.
 - `packages/realtime`: Realtime event models for presence and meetup updates.

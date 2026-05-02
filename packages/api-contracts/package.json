@@ -1,5 +1,5 @@
 {
-  "name": "@rally/api-contracts",
+  "name": "@vicina/api-contracts",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -12,8 +12,8 @@
     }
   },
   "dependencies": {
-    "@rally/domain": "workspace:*",
-    "@rally/shared-types": "workspace:*"
+    "@vicina/domain": "workspace:*",
+    "@vicina/shared-types": "workspace:*"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

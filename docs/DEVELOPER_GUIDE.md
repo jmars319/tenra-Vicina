@@ -25,7 +25,7 @@
 
 1. Create a new folder under `packages/`.
 2. Match the existing pattern: `package.json`, `tsconfig.json`, and `src/index.ts`.
-3. Use an `@rally/*` package name and keep exports narrow.
+3. Use an `@vicina/*` package name and keep exports narrow.
 4. Add the package as a `workspace:*` dependency only where it is actually consumed.
 5. Keep the package TypeScript strict and independently typecheckable.
 

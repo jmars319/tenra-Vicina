@@ -5,15 +5,15 @@ COMMON_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${COMMON_DIR}/.." && pwd)"
 
 log() {
-  printf '[rally] %s\n' "$*"
+  printf '[vicina] %s\n' "$*"
 }
 
 warn() {
-  printf '[rally][warn] %s\n' "$*" >&2
+  printf '[vicina][warn] %s\n' "$*" >&2
 }
 
 fail() {
-  printf '[rally][error] %s\n' "$*" >&2
+  printf '[vicina][error] %s\n' "$*" >&2
   exit 1
 }
 

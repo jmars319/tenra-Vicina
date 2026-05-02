@@ -1,5 +1,5 @@
-import type { MeetupStatus } from "@rally/domain";
-import type { Id, TimestampMs } from "@rally/shared-types";
+import type { MeetupStatus } from "@vicina/domain";
+import type { Id, TimestampMs } from "@vicina/shared-types";
 
 export interface MeetupEvent {
   meetupId: Id;

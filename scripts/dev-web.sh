@@ -6,5 +6,5 @@ source "$(dirname "$0")/_common.sh"
 need_cmd pnpm
 ensure_root_files
 
-log "Starting Rally webapp"
-run_in_root pnpm --filter @rally/webapp run dev
+log "Starting Vicina webapp"
+run_in_root pnpm --filter @vicina/webapp run dev

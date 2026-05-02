@@ -1,6 +1,6 @@
-import { APP_NAME } from "@rally/config";
-import { PILOT_VENUES } from "@rally/domain";
-import { brandTokens } from "@rally/ui";
+import { APP_NAME, APP_TAGLINE } from "@vicina/config";
+import { PILOT_VENUES } from "@vicina/domain";
+import { brandTokens } from "@vicina/ui";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const previewVenues = PILOT_VENUES.slice(0, 3);
@@ -9,11 +9,11 @@ export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.eyebrow}>Rally mobileapp scaffold</Text>
+        <Text style={styles.eyebrow}>{APP_TAGLINE}</Text>
         <Text style={styles.title}>{APP_NAME} mobileapp is wired.</Text>
         <Text style={styles.copy}>
           This Expo-style placeholder is part of the shared workspace and keeps
-          future iOS and Android work inside the standard Rally repo cycle.
+          future iOS and Android work inside the standard Vicina repo cycle.
         </Text>
 
         <View style={styles.panel}>

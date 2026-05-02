@@ -1,7 +1,7 @@
-# Rally V-1 Assembly Instructions for GitHub Copilot
+# Vicina V-1 Assembly Instructions for GitHub Copilot
 
 ## Context
-You are helping build Rally, a real-time social presence platform for spontaneous meetups. This is a 48-hour Version -1 build focused on the Winston-Salem Innovation Quarter pilot. The tech stack is React + Vite + Firebase (Auth + Firestore).
+You are helping build Vicina, a real-time social presence platform for spontaneous meetups. This is a 48-hour Version -1 build focused on the Winston-Salem Innovation Quarter pilot. The tech stack is React + Vite + Firebase (Auth + Firestore).
 
 ## Project Goals
 - Create a working technical probe to validate core concept
@@ -17,7 +17,7 @@ You are helping build Rally, a real-time social presence platform for spontaneou
 ### Step 1: Initialize Project Locally
 ```bash
 # Navigate to the project directory
-cd rally-v1
+cd vicina-v1
 
 # Install all dependencies
 npm install
@@ -30,7 +30,7 @@ npm run dev
 ### Step 2: Create Firebase Project
 1. Go to https://console.firebase.google.com/
 2. Click "Add Project" or "Create a project"
-3. Project name: `rally-v1-pilot` (or your choice)
+3. Project name: `vicina-v1-pilot` (or your choice)
 4. Disable Google Analytics (not needed for V-1)
 5. Click "Create Project"
 
@@ -53,7 +53,7 @@ npm run dev
 1. In Firebase Console, click the gear icon → "Project settings"
 2. Scroll down to "Your apps" section
 3. Click the web icon `</>`
-4. App nickname: `Rally Web`
+4. App nickname: `Vicina Web`
 5. Don't check "Firebase Hosting" (we'll use Vercel/Netlify)
 6. Click "Register app"
 7. Copy the `firebaseConfig` object
@@ -64,9 +64,9 @@ Open `src/firebase/config.js` and replace the placeholder config:
 ```javascript
 const firebaseConfig = {
   apiKey: "AIza...",              // Paste your actual values here
-  authDomain: "rally-v1-pilot.firebaseapp.com",
-  projectId: "rally-v1-pilot",
-  storageBucket: "rally-v1-pilot.appspot.com",
+  authDomain: "vicina-v1-pilot.firebaseapp.com",
+  projectId: "vicina-v1-pilot",
+  storageBucket: "vicina-v1-pilot.appspot.com",
   messagingSenderId: "123456789",
   appId: "1:123456789:web:abcdef123456"
 };
@@ -79,7 +79,7 @@ npm run dev
 
 Expected behavior:
 - Browser opens to `http://localhost:5173`
-- You see the Rally login screen
+- You see the Vicina login screen
 - No console errors related to Firebase
 
 ---
@@ -169,7 +169,7 @@ In your browser at `http://localhost:5173`:
 1. Click "Sign Up"
 2. Create account:
    - Display Name: "Test User 1"
-   - Email: `test1@rally.local`
+   - Email: `test1@vicina.local`
    - Password: `testpassword123`
 3. You should be redirected to venue list
 
@@ -177,7 +177,7 @@ Open a **second browser** (or incognito window):
 1. Go to `http://localhost:5173`
 2. Create second account:
    - Display Name: "Test User 2"
-   - Email: `test2@rally.local`
+   - Email: `test2@vicina.local`
    - Password: `testpassword123`
 
 ### Step 11: Test Check-in Flow
@@ -256,7 +256,7 @@ vercel
 # - Set up and deploy? Y
 # - Which scope? (your account)
 # - Link to existing project? N
-# - Project name? rally-v1
+# - Project name? vicina-v1
 # - Directory? ./
 # - Build command? npm run build
 # - Output directory? dist
@@ -269,7 +269,7 @@ vercel --prod
 **Option B: Vercel Dashboard**
 1. Go to https://vercel.com/
 2. Click "Add New" → "Project"
-3. Import your Git repository (or drag/drop the `rally-v1` folder)
+3. Import your Git repository (or drag/drop the `vicina-v1` folder)
 4. Framework Preset: Vite
 5. Build Command: `npm run build`
 6. Output Directory: `dist`
@@ -297,7 +297,7 @@ netlify init
 # Follow prompts:
 # - Create new site
 # - Team: (your team)
-# - Site name: rally-v1-pilot
+# - Site name: vicina-v1-pilot
 # - Build command: npm run build
 # - Deploy directory: dist
 
@@ -312,7 +312,7 @@ Now that you have a production URL, add it to Firebase:
 2. Click "Settings" tab
 3. Scroll to "Authorized domains"
 4. Click "Add domain"
-5. Add your Vercel/Netlify domain (e.g., `rally-v1.vercel.app`)
+5. Add your Vercel/Netlify domain (e.g., `vicina-v1.vercel.app`)
 6. Click "Add"
 
 ### Step 19: Test Production Deployment
@@ -354,7 +354,7 @@ useEffect(() => {
 if (loading) {
   return (
     <div className="container">
-      <h1>Rally</h1>
+      <h1>Vicina</h1>
       <p>Loading venues...</p>
     </div>
   );
@@ -441,9 +441,9 @@ const handleSubmit = async (e) => {
 Create `public/manifest.json`:
 ```json
 {
-  "name": "Rally",
-  "short_name": "Rally",
-  "description": "Where are people right now?",
+  "name": "Vicina",
+  "short_name": "Vicina",
+  "description": "Local, live, real",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

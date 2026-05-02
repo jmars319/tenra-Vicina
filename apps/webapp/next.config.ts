@@ -6,16 +6,16 @@ const nextConfig: NextConfig = {
     root: path.resolve(process.cwd(), "../..")
   },
   transpilePackages: [
-    "@rally/api-contracts",
-    "@rally/auth",
-    "@rally/config",
-    "@rally/domain",
-    "@rally/geo",
-    "@rally/privacy",
-    "@rally/realtime",
-    "@rally/shared-types",
-    "@rally/ui",
-    "@rally/validation"
+    "@vicina/api-contracts",
+    "@vicina/auth",
+    "@vicina/config",
+    "@vicina/domain",
+    "@vicina/geo",
+    "@vicina/privacy",
+    "@vicina/realtime",
+    "@vicina/shared-types",
+    "@vicina/ui",
+    "@vicina/validation"
   ]
 };
 

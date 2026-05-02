@@ -1,7 +1,7 @@
 [package]
-name = "rally-desktopapp"
+name = "vicina-desktopapp"
 version = "0.1.0"
-description = "Rally desktop scaffold"
+description = "Vicina desktop scaffold"
 edition = "2021"
 
 [build-dependencies]
