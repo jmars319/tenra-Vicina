@@ -193,14 +193,40 @@ h3 {
 }
 
 .profile-panel,
-.report-review {
+.report-review,
+.local-data-panel {
   display: grid;
   align-items: stretch;
 }
 
 .profile-panel h3,
-.report-review h3 {
+.report-review h3,
+.local-data-panel h3 {
   margin: 0;
+}
+
+.local-data-panel {
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #30323b;
+  border-radius: 8px;
+  background: #15161d;
+}
+
+.local-data-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.hidden-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .report-list {

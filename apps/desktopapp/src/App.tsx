@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import type { FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { APP_NAME } from "@vicina/config";
 import {
   DEFAULT_DISCOVERY_RADIUS_MILES,
@@ -65,6 +65,11 @@ interface VicinaDesktopBoard {
   localProfile?: VicinaProfile;
   reportedSignalIds: string[];
   signals: SignalRecord[];
+}
+
+interface VicinaBoardExport extends VicinaDesktopBoard {
+  exportedAtMs: number;
+  schema: "vicina-desktop-board:v1";
 }
 
 const defaultLocalProfile: VicinaProfile = {
@@ -156,7 +161,59 @@ function profileDraftFromProfile(profile: VicinaProfile): LocalProfileDraft {
   };
 }
 
+function isSignalRecord(value: unknown): value is SignalRecord {
+  if (!value || typeof value !== "object") return false;
+  const candidate = value as Partial<SignalRecord>;
+
+  return (
+    typeof candidate.id === "string" &&
+    typeof candidate.authorId === "string" &&
+    typeof candidate.authorDisplayName === "string" &&
+    typeof candidate.title === "string" &&
+    typeof candidate.description === "string" &&
+    Array.isArray(candidate.comments) &&
+    Array.isArray(candidate.interestedUserIds)
+  );
+}
+
+function isVicinaProfile(value: unknown): value is VicinaProfile {
+  if (!value || typeof value !== "object") return false;
+  const candidate = value as Partial<VicinaProfile>;
+
+  return typeof candidate.id === "string" && typeof candidate.displayName === "string";
+}
+
+function parseBoardImport(input: unknown): VicinaDesktopBoard {
+  if (!input || typeof input !== "object") {
+    throw new Error("Vicina board JSON must be an object.");
+  }
+
+  const candidate = input as Partial<VicinaDesktopBoard>;
+  const signals = Array.isArray(candidate.signals) ? candidate.signals : null;
+
+  if (!signals || !signals.every(isSignalRecord)) {
+    throw new Error("Vicina board JSON must contain signal records.");
+  }
+
+  const board: VicinaDesktopBoard = {
+    blockedAuthorIds: Array.isArray(candidate.blockedAuthorIds)
+      ? candidate.blockedAuthorIds.filter((id): id is string => typeof id === "string")
+      : [],
+    reportedSignalIds: Array.isArray(candidate.reportedSignalIds)
+      ? candidate.reportedSignalIds.filter((id): id is string => typeof id === "string")
+      : [],
+    signals
+  };
+
+  if (isVicinaProfile(candidate.localProfile)) {
+    board.localProfile = candidate.localProfile;
+  }
+
+  return board;
+}
+
 export default function App() {
+  const importInputRef = useRef<HTMLInputElement>(null);
   const [signals, setSignals] = useState<SignalRecord[]>(() => seedSignals(Date.now()));
   const [filters, setFilters] = useState<SignalFilters>(defaultFilters);
   const [selectedSignalId, setSelectedSignalId] = useState<string>(() => signals[0]?.id ?? "");
@@ -171,6 +228,7 @@ export default function App() {
   const [blockedAuthorIds, setBlockedAuthorIds] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<SignalViewMode>("list");
   const [isStoreReady, setIsStoreReady] = useState(false);
+  const [boardNotice, setBoardNotice] = useState("Local board saved on this device.");
 
   const selectedArea = findArea(filters.areaId);
 
@@ -437,6 +495,52 @@ export default function App() {
     );
   }
 
+  function exportBoard() {
+    const payload: VicinaBoardExport = {
+      blockedAuthorIds,
+      exportedAtMs: Date.now(),
+      localProfile,
+      reportedSignalIds,
+      schema: "vicina-desktop-board:v1",
+      signals
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: "application/json;charset=utf-8"
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `vicina-board-${new Date().toISOString().slice(0, 10)}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+    setBoardNotice("Board export created.");
+  }
+
+  async function importBoard(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+
+    if (!file) return;
+
+    try {
+      const board = parseBoardImport(JSON.parse(await file.text()));
+      const nowMs = Date.now();
+      const nextSignals = board.signals.map((signal) => expireSignal(signal, nowMs));
+      const nextProfile = board.localProfile ?? defaultLocalProfile;
+
+      setSignals(nextSignals);
+      setSelectedSignalId(nextSignals[0]?.id ?? "");
+      setReportedSignalIds(board.reportedSignalIds);
+      setBlockedAuthorIds(board.blockedAuthorIds);
+      setLocalProfile(nextProfile);
+      setProfileDraft(profileDraftFromProfile(nextProfile));
+      setBoardNotice(`Imported ${nextSignals.length} signal(s).`);
+    } catch (error) {
+      setBoardNotice(error instanceof Error ? error.message : "Board import failed.");
+    }
+  }
+
   return (
     <main className="desktop-shell">
       <aside className="app-rail" aria-label="Vicina desktop navigation">
@@ -483,6 +587,26 @@ export default function App() {
           </label>
           <button type="submit">Save profile</button>
         </form>
+
+        <section className="local-data-panel" aria-label="Local board data">
+          <h3>Local data</h3>
+          <div className="local-data-actions">
+            <button type="button" onClick={exportBoard}>
+              Export board
+            </button>
+            <button type="button" onClick={() => importInputRef.current?.click()}>
+              Import board
+            </button>
+          </div>
+          <p className="muted">{boardNotice}</p>
+          <input
+            ref={importInputRef}
+            className="hidden-file-input"
+            type="file"
+            accept="application/json"
+            onChange={importBoard}
+          />
+        </section>
 
         <div className="rail-metrics" aria-label="Signal summary">
           <div>

@@ -75,7 +75,8 @@ projects that commonly use `3000`.
 
 The installed desktop app should become the main Vicina product surface. The current
 web MVP remains useful as the secondary implementation reference while the desktop
-signal board, create flow, detail view, and local review workflow are built out.
+signal board, create flow, detail view, local review workflow, and JSON board
+import/export are built out.
 
 ## Web Companion MVP
 
