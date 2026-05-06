@@ -1,13 +1,14 @@
 # Web Companion MVP
 
 The current web companion surface is `apps/webapp`. Vicina’s product direction is
-desktop first, web second, and mobile third.
+web/mobile first for end users, with a desktop-usable development and operator
+surface.
 
 ## Decision
 
 The Next.js App Router scaffold presents the smallest stable hyperlocal coordination
-loop and should remain the implementation reference while the desktop app becomes
-the primary product surface:
+loop and should remain the implementation reference while mobile and desktop
+surfaces build around the same contracts:
 
 - Browse active signals by selected area at `/nearby`.
 - Filter by area, distance, category, and time.

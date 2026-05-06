@@ -35,4 +35,4 @@
 2. Keep root lifecycle control in `scripts/` rather than inventing separate top-level entrypoints.
 3. Wire at least one import from the shared packages to prove workspace resolution.
 4. Add a root build or verify command if the new surface changes repo-wide expectations.
-5. Keep the app thin until it becomes a primary product surface.
+5. Keep the desktop app useful for local development and board review, but keep social product depth web/mobile-led unless a desktop-specific workflow is clearly needed.

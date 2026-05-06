@@ -7,9 +7,9 @@ platform.
 
 ## Repo Layout
 
-- `apps/desktopapp`: Primary Vite + React + Tauri desktop surface.
-- `apps/webapp`: Secondary Next.js App Router companion surface with the current MVP loop.
-- `apps/mobileapp`: Third-surface Expo React Native scaffold with Expo Router.
+- `apps/webapp`: Primary browser surface for the social coordination product and current MVP loop.
+- `apps/mobileapp`: Primary future user surface for location-aware participation and lightweight posting.
+- `apps/desktopapp`: Desktop development and operator surface for running, reviewing, importing, and exporting local boards while the social product stays web/mobile-led.
 - `packages/*`: Shared Vicina packages for domain logic, contracts, validation, realtime, auth, geo, privacy, UI, and config.
 - `assets/branding/`: Archived design-reference assets.
 - `supabase/`: SQL migration and seed data for the Supabase MVP backend.
@@ -43,9 +43,9 @@ pnpm doctor
 
 ## Dev Harness
 
-`pnpm dev:desktop` is the primary product-surface command. `pnpm dev:web` remains
-the direct interactive Next.js companion command. For repeatable
-start/stop/status flows, use the managed harness:
+`pnpm dev:web` is the primary product-surface command for the current social MVP.
+`pnpm dev:mobile` is the future user-surface command for mobile participation.
+`pnpm dev:desktop` remains important for desktop development, review, and local board operations. For repeatable start/stop/status flows, use the managed harness:
 
 ```bash
 pnpm dev:start
@@ -71,16 +71,22 @@ Edit `.dev/dev-config.sh` to change the managed web port, host, health path, or
 timeouts. The default managed port is `3002` so it can coexist with other local
 projects that commonly use `3000`.
 
-## Desktop-First Direction
+## Product Surface Direction
 
-The installed desktop app should become the main Vicina product surface. The current
-web MVP remains useful as the secondary implementation reference while the desktop
-signal board, create flow, detail view, local review workflow, and JSON board
-import/export are built out.
+Vicina is a social coordination product, so the end-user experience should be
+web and mobile led. The web app owns the current browser MVP, and the mobile app
+should become the natural participation surface for nearby discovery, posting,
+and lightweight review.
 
-## Web Companion MVP
+The desktop app should still be a real, usable program for local development,
+operator review, board import/export, and testing richer workflows from a
+desktop machine. It should not force Vicina into a desktop-first product shape,
+but it should remain complete enough that the app can be developed and reviewed
+comfortably from the desktop.
 
-The current web companion surface uses Next.js App Router with a small design system under
+## Web MVP
+
+The current web surface uses Next.js App Router with a small design system under
 `apps/webapp/src/components`:
 
 - `branding`: SVG Vicina mark, wordmark, and lockup based on the reference image

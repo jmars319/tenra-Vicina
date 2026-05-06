@@ -2,9 +2,9 @@
 
 ## Apps
 
-- `apps/desktopapp`: Primary Tauri desktop surface with a React renderer and a minimal Rust host.
-- `apps/webapp`: Secondary Next.js companion surface and current MVP reference implementation.
-- `apps/mobileapp`: Third-surface Expo-style mobile placeholder wired into the shared workspace packages.
+- `apps/webapp`: Primary browser surface and current MVP implementation for the social coordination product.
+- `apps/mobileapp`: Future primary user surface for location-aware participation, posting, and lightweight review.
+- `apps/desktopapp`: Desktop development/operator Tauri surface with a React renderer and minimal Rust host. It supports local board review and import/export without making Vicina desktop-first.
 
 ## Shared Packages
 
