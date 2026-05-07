@@ -1,231 +1,83 @@
 # Vicina by tenra
 
-Vicina by tenra is an experimental hyperlocal coordination app for seeing
-what is happening nearby right now. Its tagline is "What's happening nearby."
-The product is intentionally not a traditional feed, follower, or popularity
-platform.
+Vicina by tenra is an experimental local coordination system for seeing what is happening nearby. It is intentionally not a follower feed, popularity platform, or engagement-maximizing social app.
 
-## Repo Layout
+The product direction is web and mobile led for end users, with a desktop surface retained for local review, board import/export, and operator workflows.
 
-- `apps/webapp`: Primary browser surface for the social coordination product and current MVP loop.
-- `apps/mobileapp`: Primary future user surface for location-aware participation and lightweight posting.
-- `apps/desktopapp`: Desktop development and operator surface for running, reviewing, importing, and exporting local boards while the social product stays web/mobile-led.
-- `packages/*`: Shared Vicina packages for domain logic, contracts, validation, realtime, auth, geo, privacy, UI, and config.
-- `assets/branding/`: Archived design-reference assets.
-- `supabase/`: SQL migration and seed data for the Supabase MVP backend.
-- `scripts/`: Root lifecycle commands for bootstrap, development, verification, and environment checks.
-- `docs/`: Short operational docs for developers working inside the scaffold.
-- `archive/version-minus-1/`: Archived Version -1 prototype material preserved outside the new canonical layout.
+## Operational Purpose
 
-## Install
+- Represent nearby signals with location, time, category, and reviewable context.
+- Support lightweight creation and discovery without follower-count mechanics.
+- Keep moderation, blocking, reporting, and privacy boundaries visible in the product model.
+- Preserve a desktop review surface for local development and operator inspection.
 
-Use Node 22 or newer.
+## Design Posture
 
-```bash
-pnpm install
+- Local coordination over social-feed growth mechanics.
+- Clear categories and time windows over infinite-scroll ambiguity.
+- Privacy and safety boundaries in shared packages rather than ad hoc UI logic.
+- Web/mobile as the natural participation surfaces.
+- Desktop as an operator and development surface, not the main social product.
+
+## Architecture
+
+```text
+apps/
+  webapp/       Next.js browser MVP and current primary product surface
+  mobileapp/    Expo scaffold for future location-aware participation
+  desktopapp/   Tauri desktop review and local board operations surface
+
+packages/
+  domain/       Signal, area, category, and participation models
+  api-contracts/ Shared request and response contracts
+  validation/   Runtime schemas
+  realtime/     Future realtime payloads
+  auth/         Auth/session placeholders
+  geo/          Location-aware helper contracts
+  privacy/      Privacy and safe-display boundaries
+  ui/           Shared interface primitives
+  config/       Product identity and environment helpers
+
+supabase/       MVP schema and seed material
+docs/           Developer and handoff documentation
+archive/        Retired prototype material
 ```
 
-Useful commands:
+## Current State
+
+- The web app owns the current MVP loop.
+- The web MVP uses local mock data while Supabase integration remains staged.
+- The mobile app is the intended future participation surface.
+- The desktop app supports local review and import/export workflows.
+- The archived Version -1 prototype is preserved outside the canonical app layout.
+
+## Deployment Posture
+
+Vicina is an experimental product scaffold. The web app can run locally today; a real public deployment requires live persistence, location/privacy review, moderation posture, and production environment configuration.
+
+## Working Locally
 
 ```bash
-pnpm dev:mobile
-pnpm dev:web
-pnpm dev:start
-pnpm dev:status
-pnpm dev:verify
-pnpm dev:stop
-pnpm launch:desktop
-pnpm verify:web
-pnpm verify:mobile
-pnpm typecheck
-pnpm lint
-pnpm doctor
+pnpm run bootstrap
+pnpm run dev:web
+pnpm run dev:desktop
+pnpm run dev:mobile
+pnpm run verify:all
+pnpm run doctor
 ```
 
-## Dev Harness
+The managed dev harness can also run the web MVP with start, status, restart, stop, and verify commands.
 
-`pnpm dev:web` is the primary product-surface command for the current social MVP.
-`pnpm dev:mobile` is the future user-surface command for mobile participation.
-`pnpm dev:desktop` remains important for desktop development, review, and local board operations. For repeatable start/stop/status flows, use the managed harness:
+## Direction
 
-```bash
-pnpm dev:start
-pnpm dev:status
-pnpm dev:restart
-pnpm dev:stop
-pnpm dev:verify
-```
+- Wire real persistence without weakening the local review model.
+- Keep social mechanics focused on useful local coordination.
+- Harden safety, reporting, and privacy flows before public use.
+- Let mobile become the natural participation surface when the core model is ready.
 
-The managed harness starts only the web app because Vicina does not currently
-have a separate local backend server. It writes PID files and logs under `.dev/`,
-checks `/api/health`, smoke-tests the core web routes, and stops its own process
-cleanly.
+## Related Documentation
 
-Local overrides are optional:
-
-```bash
-mkdir -p .dev
-cp scripts/dev-config.example.sh .dev/dev-config.sh
-```
-
-Edit `.dev/dev-config.sh` to change the managed web port, host, health path, or
-timeouts. The default managed port is `3002` so it can coexist with other local
-projects that commonly use `3000`.
-
-## Product Surface Direction
-
-Vicina is a social coordination product, so the end-user experience should be
-web and mobile led. The web app owns the current browser MVP, and the mobile app
-should become the natural participation surface for nearby discovery, posting,
-and lightweight review.
-
-The desktop app should still be a real, usable program for local development,
-operator review, board import/export, and testing richer workflows from a
-desktop machine. It should not force Vicina into a desktop-first product shape,
-but it should remain complete enough that the app can be developed and reviewed
-comfortably from the desktop.
-
-## Web MVP
-
-The current web surface uses Next.js App Router with a small design system under
-`apps/webapp/src/components`:
-
-- `branding`: SVG Vicina mark, wordmark, and lockup based on the reference image
-- `layout`: shared app header and page shell
-- `ui`: Button, Card, Chip, Input, and Textarea primitives
-- `signal`: reusable signal cards and filter controls
-
-Routes:
-
-- `/`: landing/hero with full Vicina lockup
-- `/nearby`: active signals with area, distance, category, time, and explicit sort controls
-- `/create`: lightweight signal creation form with Zod validation
-- `/profile`: display name, bio, and local user's active signals
-- `/signal/[id]`: signal detail, interest button, thread, report, and block actions
-
-The web MVP uses browser-local mock data from
-`apps/webapp/src/lib/mock/signals.ts` so it can run before Supabase is wired into
-the web app. It intentionally avoids follower counts, likes, popularity ranking,
-and infinite-scroll mechanics.
-
-Run it with:
-
-```bash
-pnpm dev:web
-```
-
-## Mobile MVP
-
-The mobile scaffold uses:
-
-- Expo React Native with TypeScript and Expo Router
-- Supabase auth, Postgres, realtime-ready tables, storage-ready project setup, and RLS
-- Zod validation through `@vicina/validation`
-- TanStack Query for server state
-- Seed fallback data so the nearby feed and detail routes render before Supabase is configured
-
-Routes:
-
-- `/auth`
-- `/(tabs)/nearby`
-- `/(tabs)/create`
-- `/(tabs)/profile`
-- `/signal/[id]`
-- `/settings`
-
-## Supabase Setup
-
-1. Create a Supabase project at `supabase.com`.
-2. Copy `.env.example` to `.env`.
-3. Paste your project values:
-
-```bash
-EXPO_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-EXPO_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_KEY
-```
-
-4. Install and authenticate the Supabase CLI if needed.
-5. Link the project and run migrations:
-
-```bash
-supabase link --project-ref YOUR_PROJECT_REF
-supabase db push
-```
-
-For local Supabase:
-
-```bash
-supabase start
-supabase db reset
-```
-
-`supabase/seed.sql` creates local seed users and active signals for development.
-The mobile app also has a TypeScript seed fallback in
-`apps/mobileapp/src/data/seedSignals.ts` so the feed renders without a backend.
-
-## Database Schema
-
-The MVP migration lives at
-`supabase/migrations/20260502120000_vicina_mvp.sql` and creates:
-
-- `profiles`
-- `signals`
-- `signal_interests`
-- `signal_comments`
-- `user_blocks`
-- `reports`
-
-The schema includes UUID primary keys, `created_at` and `updated_at`, safe
-defaults, indexes for active signal lookup and latitude/longitude bounding-box
-queries, and RLS policies for authenticated ownership. Anonymous users can read
-visible, active, unexpired signals. Authenticated users can create and manage
-only their own signals, interests, comments, reports, and blocks.
-
-## Run Expo
-
-```bash
-pnpm dev:mobile
-```
-
-The app launches with seed data if Supabase env vars are absent. Live posting,
-replying, reporting, and blocking require Supabase auth.
-
-## MVP Limitations
-
-- Nearby search is intentionally geospatial-ish: latitude/longitude indexes plus
-  app-side radius filtering. PostGIS can replace this when the product needs it.
-- Display names are minimal and profile editing is not fully built.
-- Realtime subscriptions and storage upload flows are not wired yet, though the
-  Supabase stack and schema leave room for them.
-- Moderation is foundational only: report, block, and content status fields.
-
-## Safety And Privacy
-
-- Vicina never displays exact coordinates publicly.
-- The mobile app rounds coordinates before sending them.
-- Public UI uses approximate labels such as "near Downtown" or "within 2 miles."
-- No likes, follower counts, popularity ranking, or infinite-scroll engagement
-  mechanics are included.
-- Comments/replies live only inside a signal thread.
-
-## Smoke Checklist
-
-- Web root renders the full brand lockup.
-- Web header renders icon + `Vicina` without the tagline.
-- Web `/nearby`, `/create`, `/profile`, and `/signal/[id]` routes render.
-- Web nearby supports selecting a browse area before applying distance filters.
-- Web create signal form validates required fields and 24-hour max expiration.
-- Auth screen renders at `/auth`.
-- Nearby tab renders seeded active signals.
-- Radius controls support 1, 3, 5, and 10 miles.
-- Create signal form rejects missing title/description and expiration over 24 hours.
-- Signal detail renders approximate area, time, expiration, interest count, and thread.
-- Profile tab renders signed-out and signed-in states.
-- No exact latitude/longitude is displayed in public UI.
-- `pnpm verify:mobile` passes.
-
-## Notes
-
-- The archived Version -1 app remains separate from the new scaffold so the repo reads as Vicina rather than as a nested historical artifact.
-- Shared workspace imports are wired into all three app shells.
-- The current web MVP lives in `apps/webapp` and runs against local Next.js API routes with a gitignored dev store. See `docs/WEB_MVP.md`.
+- [Web MVP](docs/WEB_MVP.md)
+- [Developer Guide](docs/DEVELOPER_GUIDE.md)
+- [Repo Map](docs/REPO_MAP.md)
+- [Stability Checklist](docs/STABILITY_CHECKLIST.md)
