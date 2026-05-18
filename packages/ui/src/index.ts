@@ -1,14 +1,14 @@
 export const brandTokens = {
   colors: {
-    canvas: "#f5f4ef",
-    surface: "#fffdf8",
-    surfaceRaised: "#ffffff",
-    border: "#d9ded8",
-    textPrimary: "#1d2f2d",
-    textMuted: "#64716d",
-    accent: "#244f43",
-    accentMuted: "#6f8a68",
-    accentSoft: "#e8efe7",
+    canvas: "#0D0D0F",
+    surface: "#1E1E22",
+    surfaceRaised: "#2C2C30",
+    border: "rgba(242, 242, 245, 0.14)",
+    textPrimary: "#f2f2f5",
+    textMuted: "#A0A0A0",
+    accent: "#09A6D6",
+    accentMuted: "#68cfee",
+    accentSoft: "rgba(9, 166, 214, 0.14)",
     accentWarm: "#c26a2d",
     danger: "#a23d32"
   },

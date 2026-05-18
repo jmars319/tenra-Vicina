@@ -70,7 +70,7 @@ button:disabled {
   border: 1px solid #30323b;
   border-radius: 8px;
   background: #15161d;
-  color: #09a6d6;
+  color: #09A6D6;
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -103,7 +103,7 @@ h3 {
 .description,
 .muted,
 .empty-state span {
-  color: #a0a0a0;
+  color: #A0A0A0;
   line-height: 1.55;
 }
 
@@ -152,7 +152,7 @@ h3 {
 .detail-header p,
 .field span,
 .report-review p {
-  color: #a0a0a0;
+  color: #A0A0A0;
   font-size: 0.78rem;
 }
 
@@ -261,7 +261,7 @@ h3 {
 }
 
 .view-tools button.is-active {
-  border-color: #09a6d6;
+  border-color: #09A6D6;
   background: rgba(9, 166, 214, 0.18);
 }
 
@@ -314,7 +314,7 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus-visible {
-  border-color: #09a6d6;
+  border-color: #09A6D6;
   box-shadow: 0 0 0 3px rgba(9, 166, 214, 0.18);
 }
 
@@ -361,7 +361,7 @@ button:focus-visible {
   border-radius: 999px;
   background: #0f1015;
   border: 1px solid #30323b;
-  color: #a0a0a0;
+  color: #A0A0A0;
   font-size: 0.78rem;
 }
 
@@ -374,12 +374,12 @@ button:focus-visible {
   transform: translate(-50%, -50%);
   border: 2px solid #0f1015;
   border-radius: 999px;
-  background: #09a6d6;
+  background: #09A6D6;
 }
 
 .map-dot.is-selected {
-  background: #f2f2f5;
-  border-color: #09a6d6;
+  background: #1E1E22;
+  border-color: #09A6D6;
 }
 
 .map-dot span {
@@ -485,8 +485,8 @@ button:hover:not(:disabled) {
 }
 
 .primary-action {
-  border-color: #09a6d6;
-  background: #09a6d6;
+  border-color: #09A6D6;
+  background: #09A6D6;
   color: #071015;
   font-weight: 800;
 }
@@ -516,7 +516,7 @@ button:hover:not(:disabled) {
 }
 
 .comment p {
-  color: #a0a0a0;
+  color: #A0A0A0;
   line-height: 1.45;
 }
 
@@ -589,3 +589,66 @@ button:hover:not(:disabled) {
     justify-self: stretch;
   }
 }
+
+/* JAMARQ/Tenra visual standard */
+:root {
+  color-scheme: dark;
+  --jamarq-canvas: #0D0D0F;
+  --jamarq-surface: #1E1E22;
+  --jamarq-surface-raised: #2C2C30;
+  --jamarq-text: #f2f2f5;
+  --jamarq-muted: #A0A0A0;
+  --jamarq-accent: #09A6D6;
+  --jamarq-border: rgba(242, 242, 245, 0.14);
+}
+
+html,
+body,
+#root {
+  background: var(--jamarq-canvas);
+  color: var(--jamarq-text);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(9, 166, 214, 0.16), transparent 34rem),
+    var(--jamarq-canvas);
+}
+
+button,
+input,
+select,
+textarea {
+  border-color: var(--jamarq-border);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--jamarq-accent);
+  outline-offset: 2px;
+}
+
+[class*="panel"],
+[class*="card"],
+[class*="tile"],
+[class*="surface"] {
+  border-color: var(--jamarq-border);
+  background-color: var(--jamarq-surface);
+}
+
+[class*="sidebar"],
+[class*="rail"] {
+  border-color: var(--jamarq-border);
+  background: rgba(13, 13, 15, 0.92);
+}
+
+[class*="muted"],
+[class*="meta"],
+[class*="description"],
+[class*="summary"] {
+  color: var(--jamarq-muted);
+}
+
