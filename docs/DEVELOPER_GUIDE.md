@@ -21,6 +21,17 @@
 - Per-surface verification: `pnpm verify:web`, `pnpm verify:desktop`, `pnpm verify:mobile`
 - Whole-repo integrity pass: `pnpm doctor`
 
+## Local Tooling
+
+The shared local machine baseline supports Vicina's web, desktop, mobile, and Supabase-backed paths:
+
+- Use `supabase` for local Supabase diagnostics and project-linked database work when hosted services enter the workflow.
+- Use `cargo audit`, `cargo deny`, and `sccache` around Tauri/Rust work in `apps/desktopapp/src-tauri`.
+- Use `actionlint` before changing GitHub Actions workflows.
+- Use `shellcheck` and `shfmt` when editing repo scripts.
+- Use `osv-scanner` for dependency advisory checks across package manifests.
+- Use `pa11y` and `lighthouse` against the running web surface when community-facing screens change.
+
 ## Add A New Shared Package
 
 1. Create a new folder under `packages/`.
