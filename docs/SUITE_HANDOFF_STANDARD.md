@@ -1,6 +1,6 @@
 # Suite Handoff Standard
 
-Generated from `tenra Registry/contracts/handoff-catalog.json` by `tenra Registry/scripts/generate-suite-contract-docs.mjs`.
+Generated from `tenra Hub/contracts/handoff-catalog.json` by `tenra Hub/scripts/generate-suite-contract-docs.mjs`.
 
 ## App Role
 
@@ -11,6 +11,10 @@ keep unique; route workflow signals to Assembly, Guardrail, Sentinel, and Proxy 
 ## Standalone Mode
 
 Runs as a complete workflow orchestration app with local workflow state, handoff timelines, endpoint health, and operator notes.
+
+## Repository Path
+
+`independent/community/Vicina by tenra`
 
 ## Accepted Inputs
 
