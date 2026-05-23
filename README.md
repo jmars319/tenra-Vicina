@@ -40,7 +40,6 @@ packages/
 
 supabase/       MVP schema and seed material
 docs/           Developer and handoff documentation
-archive/        Retired prototype material
 ```
 
 ## Current State
@@ -49,7 +48,7 @@ archive/        Retired prototype material
 - The web MVP uses local mock data while Supabase integration remains staged.
 - The mobile app is the intended future participation surface.
 - The desktop app supports local review and import/export workflows.
-- The archived Version -1 prototype is preserved outside the canonical app layout.
+- Version -1 prototype lessons have been folded into the current monorepo docs and package layout; the retired prototype source is no longer tracked.
 
 ## Deployment Posture
 

@@ -23,4 +23,4 @@
 
 - `scripts/`: Root commands for bootstrap, development, package checks, verification, and doctor runs.
 - `docs/`: Short reference docs for contributors.
-- `archive/version-minus-1/`: Archived pre-monorepo prototype material, including the original Vite/Firebase app.
+- Version -1 prototype material has been retired from source control; preserve useful lessons in current package docs instead of restoring the old Vite/Firebase app.
