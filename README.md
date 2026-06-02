@@ -23,8 +23,8 @@ The product direction is web and mobile led for end users, with a desktop surfac
 
 ```text
 apps/
-  webapp/       Next.js browser MVP and current primary product surface
-  mobileapp/    Expo scaffold for future location-aware participation
+  webapp/       Next.js browser workbench and current primary product surface
+  mobileapp/    Expo reserved surface for future location-aware participation
   desktopapp/   Tauri desktop review and local board operations surface
 
 packages/
@@ -32,27 +32,27 @@ packages/
   api-contracts/ Shared request and response contracts
   validation/   Runtime schemas
   realtime/     Future realtime payloads
-  auth/         Auth/session placeholders
+  auth/         Auth/session reserved contracts
   geo/          Location-aware helper contracts
   privacy/      Privacy and safe-display boundaries
   ui/           Shared interface primitives
   config/       Product identity and environment helpers
 
-supabase/       MVP schema and seed material
+supabase/       Staged persistence schema and seed material
 docs/           Developer and handoff documentation
 ```
 
 ## Current State
 
-- The web app owns the current MVP loop.
-- The web MVP uses local mock data while Supabase integration remains staged.
+- The web app owns the current local coordination loop.
+- The web workbench uses local signal data while Supabase integration remains staged.
 - The mobile app is the intended future participation surface.
 - The desktop app supports local review and import/export workflows.
-- Version -1 prototype lessons have been folded into the current monorepo docs and package layout; the retired prototype source is no longer tracked.
+- Earlier product lessons have been folded into the current monorepo docs and package layout; retired source is no longer tracked.
 
 ## Deployment Posture
 
-Vicina is an experimental product scaffold. The web app can run locally today; a real public deployment requires live persistence, location/privacy review, moderation posture, and production environment configuration.
+Vicina is a local coordination workbench. The web app can run locally today; a public deployment requires live persistence, location/privacy review, moderation posture, and production environment configuration.
 
 ## Working Locally
 
@@ -65,7 +65,7 @@ pnpm run verify:all
 pnpm run doctor
 ```
 
-The managed dev harness can also run the web MVP with start, status, restart, stop, and verify commands.
+The managed dev harness can also run the web workbench with start, status, restart, stop, and verify commands.
 
 ## Direction
 
@@ -76,7 +76,7 @@ The managed dev harness can also run the web MVP with start, status, restart, st
 
 ## Related Documentation
 
-- [Web MVP](docs/WEB_MVP.md)
+- [Web Companion](docs/WEB_MVP.md)
 - [Developer Guide](docs/DEVELOPER_GUIDE.md)
 - [Repo Map](docs/REPO_MAP.md)
 - [Stability Checklist](docs/STABILITY_CHECKLIST.md)

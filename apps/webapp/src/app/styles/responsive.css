@@ -1,0 +1,128 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-canvas: #111b19;
+    --color-canvas-alt: #172522;
+    --color-surface: #17221f;
+    --color-surface-raised: #1d2c28;
+    --color-border: #2f403b;
+    --color-border-strong: #496057;
+    --color-text: #f1f4ed;
+    --color-muted: #b3c0b9;
+    --color-primary: #f1f4ed;
+    --color-primary-soft: #263a33;
+    --color-secondary: #b7c7a5;
+    --color-action: #dce7d6;
+    --color-action-text: #11201d;
+    --shadow-soft: 0 18px 42px rgba(0, 0, 0, 0.24);
+  }
+
+  body {
+    background:
+      linear-gradient(180deg, rgba(38, 58, 51, 0.82), rgba(17, 27, 25, 0) 420px),
+      var(--color-canvas);
+  }
+}
+
+@media (max-width: 820px) {
+  .landing-shell,
+  .page-shell {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .app-header__nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: min(270px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .app-header__nav a {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 4px;
+    text-align: center;
+  }
+
+  .hero,
+  .signal-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: var(--space-5);
+  }
+
+  .hero__panel-map {
+    min-height: 260px;
+  }
+
+  .principles,
+  .workflow-chooser,
+  .filters,
+  .choice-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    display: block;
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    padding-top: var(--space-4);
+  }
+
+  .filters,
+  .card,
+  .signal-card {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+  }
+
+  .signal-card {
+    overflow: hidden;
+    padding: var(--space-4);
+  }
+
+  .signal-card__top,
+  .signal-card__meta,
+  .signal-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero p,
+  .page-hero p,
+  .detail-heading p,
+  .signal-card p,
+  .privacy-note {
+    width: min(330px, calc(100vw - 48px));
+    max-width: calc(100vw - 48px);
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .chip {
+    width: 100%;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .chip-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

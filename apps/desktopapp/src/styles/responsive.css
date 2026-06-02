@@ -1,0 +1,48 @@
+@media (max-width: 1180px) {
+  .desktop-shell {
+    grid-template-columns: 240px minmax(280px, 0.9fr) minmax(380px, 1.1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-rail,
+  .signal-column,
+  .detail-column {
+    min-height: auto;
+  }
+
+  .app-rail {
+    grid-template-rows: auto;
+  }
+
+  .rail-metrics {
+    align-self: start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .app-rail,
+  .signal-column,
+  .detail-column {
+    padding: 16px;
+  }
+
+  .filter-grid,
+  .form-grid,
+  .detail-list {
+    grid-template-columns: 1fr;
+  }
+
+  .comment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .create-panel .primary-action {
+    justify-self: stretch;
+  }
+}

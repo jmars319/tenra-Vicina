@@ -1,0 +1,43 @@
+{
+  "label": "vicina-by-tenra-monorepo",
+  "maxImplementationFileLines": 425,
+  "maxStyleFileLines": 230,
+  "maxAppShellLines": 100,
+  "maxDesktopMainLines": 160,
+  "maxDomainBarrelLines": 250,
+  "nearBudgetMarginLines": 25,
+  "nearBudgetMarginKb": 4,
+  "initialBundleBudgetKb": 230,
+  "requireBuiltAssets": true,
+  "sourceRoots": ["apps", "packages", "scripts"],
+  "assetDirs": [
+    "apps/desktopapp/dist/assets",
+    "apps/webapp/.next/static/chunks"
+  ],
+  "allowedGenerated": [
+    "apps/webapp/next-env.d.ts",
+    "apps/desktopapp/src/vite-env.d.ts",
+    "apps/mobileapp/.expo/types/router.d.ts"
+  ],
+  "cssEntryFiles": [
+    "apps/desktopapp/src/styles.css",
+    "apps/webapp/src/app/globals.css"
+  ],
+  "contractSnapshotPath": "scripts/contracts/maintainability-contracts.json",
+  "specificFileBudgets": {
+    "scripts/audit-maintainability.mjs": 400,
+    "apps/desktopapp/src/desktop/useVicinaDesktopBoard.ts": 500,
+    "apps/desktopapp/src/styles/signal-browser.css": 285
+  },
+  "assetBudgets": [
+    { "path": "assets/branding/vicina-logo-reference.jpg", "maxBytes": 900000 },
+    { "path": "apps/desktopapp/src-tauri/icons/icon.png", "maxBytes": 220000 },
+    { "path": "apps/desktopapp/src-tauri/icons/icon.icns", "maxBytes": 790000 },
+    { "path": "apps/desktopapp/src-tauri/icons/icon.ico", "maxBytes": 150000 },
+    { "path": "apps/desktopapp/src-tauri/icons/icon-source.svg", "maxBytes": 7000 }
+  ],
+  "routeChunkBudgetsKb": {
+    "apps/desktopapp/dist/assets/.*\\.js$": 230,
+    "apps/webapp/.next/static/chunks/.*\\.js$": 275
+  }
+}

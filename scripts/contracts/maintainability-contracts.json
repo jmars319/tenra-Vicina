@@ -1,0 +1,392 @@
+{
+  "packageName": "vicina-by-tenra-monorepo",
+  "packageScripts": [
+    "analyze:bundle",
+    "audit:maintainability",
+    "bootstrap",
+    "budget:bundle",
+    "build:desktop",
+    "build:mobile",
+    "build:web",
+    "check:env",
+    "check:packages",
+    "dev:both",
+    "dev:desktop",
+    "dev:mobile",
+    "dev:restart",
+    "dev:start",
+    "dev:status",
+    "dev:stop",
+    "dev:verify",
+    "dev:web",
+    "dev:web:restart",
+    "dev:web:start",
+    "dev:web:status",
+    "dev:web:stop",
+    "doctor",
+    "install:desktop",
+    "launch:desktop",
+    "lint",
+    "package:desktop",
+    "typecheck",
+    "verify:all",
+    "verify:desktop",
+    "verify:handoffs",
+    "verify:mobile",
+    "verify:web"
+  ],
+  "workspacePackages": [
+    {
+      "path": "apps/desktopapp/package.json",
+      "name": "@vicina/desktopapp",
+      "exports": null
+    },
+    {
+      "path": "apps/mobileapp/package.json",
+      "name": "@vicina/mobileapp",
+      "exports": null
+    },
+    {
+      "path": "apps/webapp/package.json",
+      "name": "@vicina/webapp",
+      "exports": null
+    },
+    {
+      "path": "packages/api-contracts/package.json",
+      "name": "@vicina/api-contracts",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/auth/package.json",
+      "name": "@vicina/auth",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/config/package.json",
+      "name": "@vicina/config",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/domain/package.json",
+      "name": "@vicina/domain",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/geo/package.json",
+      "name": "@vicina/geo",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/privacy/package.json",
+      "name": "@vicina/privacy",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/realtime/package.json",
+      "name": "@vicina/realtime",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/shared-types/package.json",
+      "name": "@vicina/shared-types",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/ui/package.json",
+      "name": "@vicina/ui",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    },
+    {
+      "path": "packages/validation/package.json",
+      "name": "@vicina/validation",
+      "exports": {
+        ".": {
+          "types": "./src/index.ts",
+          "default": "./src/index.ts"
+        }
+      }
+    }
+  ],
+  "packageExports": {
+    "packages/api-contracts/src/index.ts": [
+      "CreateMeetupRequest",
+      "CreateMeetupResponse",
+      "CreateVenueMessageRequest",
+      "CreateVenueMessageResponse",
+      "DeleteCheckInRequest",
+      "DeleteCheckInResponse",
+      "UpsertCheckInRequest",
+      "UpsertCheckInResponse",
+      "VicinaStateResponse",
+      "VicinaVenueState",
+      "VicinaWorkflowHandoff",
+      "buildVicinaWorkflowHandoff"
+    ],
+    "packages/auth/src/index.ts": [
+      "SessionUser"
+    ],
+    "packages/config/src/index.ts": [
+      "APP_NAME",
+      "APP_TAGLINE",
+      "DEFAULT_DISCOVERY_RADIUS_MILES",
+      "PUBLIC_ENV_KEYS",
+      "readPublicConfig"
+    ],
+    "packages/domain/src/index.ts": [
+      "CHECK_IN_DURATION_MINUTES",
+      "CHECK_IN_DURATION_MS",
+      "CHECK_IN_INTENTS",
+      "CONTENT_STATUSES",
+      "CheckInIntent",
+      "ContentStatus",
+      "DEFAULT_DISCOVERY_RADIUS_MILES",
+      "DEFAULT_SIGNAL_DURATION_HOURS",
+      "DISCOVERY_RADIUS_MILES",
+      "DiscoveryRadiusMiles",
+      "MAX_SIGNAL_DURATION_HOURS",
+      "MAX_SIGNAL_DURATION_MS",
+      "MEETUP_STATUSES",
+      "MeetupStatus",
+      "PILOT_VENUES",
+      "PilotVenue",
+      "SIGNAL_CATEGORIES",
+      "SIGNAL_CATEGORY_LABELS",
+      "SIGNAL_STATUSES",
+      "SignalCategory",
+      "SignalComment",
+      "SignalInterest",
+      "SignalReport",
+      "SignalStatus",
+      "UserBlock",
+      "VISIBILITY_MODES",
+      "VenueMessage",
+      "VicinaCheckIn",
+      "VicinaProfile",
+      "VicinaSignal",
+      "VisibilityMode",
+      "createCheckInExpiry",
+      "findPilotVenue",
+      "isCheckInActive",
+      "isCheckInEligible"
+    ],
+    "packages/geo/src/index.ts": [
+      "distanceKm"
+    ],
+    "packages/privacy/src/index.ts": [
+      "coarseLocation"
+    ],
+    "packages/realtime/src/index.ts": [
+      "MeetupEvent"
+    ],
+    "packages/shared-types/src/index.ts": [
+      "Id",
+      "LatLng",
+      "TimestampMs"
+    ],
+    "packages/ui/src/index.ts": [
+      "brandTokens"
+    ],
+    "packages/validation/src/index.ts": [
+      "ParsedCreateMeetupRequest",
+      "ParsedCreateSignalCommentRequest",
+      "ParsedCreateSignalRequest",
+      "ParsedCreateVenueMessageRequest",
+      "ParsedDeleteCheckInRequest",
+      "ParsedReportSignalRequest",
+      "ParsedUpsertCheckInRequest",
+      "ParsedVicinaWorkflowHandoff",
+      "contentStatusSchema",
+      "createMeetupRequestSchema",
+      "createSignalCommentRequestSchema",
+      "createSignalRequestSchema",
+      "createVenueMessageRequestSchema",
+      "deleteCheckInRequestSchema",
+      "discoveryRadiusMilesSchema",
+      "latLngSchema",
+      "parseCreateMeetupRequest",
+      "reportSignalRequestSchema",
+      "signalCategorySchema",
+      "signalStatusSchema",
+      "upsertCheckInRequestSchema",
+      "vicinaWorkflowHandoffSchema"
+    ]
+  },
+  "schemaIds": [
+    "tenra-align.alignment-snapshot.v1",
+    "tenra-align.review-reply-route.v1",
+    "tenra-assembly.proxy-notice-handoff.v1",
+    "tenra-derive.reasoning-brief.v1",
+    "tenra-facet.orientation-packet.v1",
+    "tenra-guardrail.external-action-decision.v1",
+    "tenra-guardrail.external-action-review.v1",
+    "tenra-partition.lab-validation-request.v1",
+    "tenra-partition.lab-validation-result.v1",
+    "tenra-registry.assembly-document-request.v1",
+    "tenra-registry.ledger-export.v1",
+    "tenra-scout.opportunity-handoff.v1",
+    "tenra-sentinel.risk-brief.v1",
+    "tenra-vicina.workflow-handoff.v1"
+  ],
+  "handoffFixtures": [
+    {
+      "path": "fixtures/handoffs/workflow-handoff.json",
+      "schema": "tenra-vicina.workflow-handoff.v1"
+    }
+  ],
+  "storageKeys": [
+    "tenra-vicina-suite-endpoints:v1",
+    "vicina.desktop.board.v2",
+    "vicina.desktop.signals.v1"
+  ],
+  "nextRoutes": [
+    "/",
+    "/api/health",
+    "/api/vicina/check-ins",
+    "/api/vicina/messages",
+    "/api/vicina/state",
+    "/create",
+    "/nearby",
+    "/profile",
+    "/signal/[id]"
+  ],
+  "suiteCatalog": {
+    "apps": [],
+    "contracts": [],
+    "flows": [],
+    "schema": ""
+  },
+  "tauriConfig": {
+    "$schema": "https://schema.tauri.app/config/2",
+    "productName": "Vicina by tenra",
+    "version": "0.1.0",
+    "identifier": "co.tenra.vicina.desktopapp",
+    "build": {
+      "beforeDevCommand": "pnpm run dev:webview",
+      "beforeBuildCommand": "pnpm run build:webview",
+      "devUrl": "http://localhost:1420",
+      "frontendDist": "../dist"
+    },
+    "app": {
+      "windows": [
+        {
+          "title": "Vicina by tenra",
+          "width": 1200,
+          "height": 840,
+          "resizable": true
+        }
+      ]
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    }
+  },
+  "desktopAppNames": [],
+  "desktopMenuLabels": [
+    "All",
+    "Any active",
+    "Downtown Greensboro",
+    "Downtown Raleigh",
+    "Downtown Winston-Salem",
+    "Innovation Quarter",
+    "Nearest",
+    "Newest",
+    "Now",
+    "Soonest",
+    "Today",
+    "West End"
+  ],
+  "tauriCommands": [],
+  "tauriMenuIds": [
+    "close-window",
+    "quit",
+    "settings"
+  ],
+  "uiSectionIds": [
+    "camino-bakery",
+    "checkin_seed_arden_krankies-factory",
+    "checkin_seed_mina_incendiary",
+    "comment-coffee-1",
+    "desktop-user-local",
+    "downtown-greensboro",
+    "downtown-raleigh",
+    "downtown-winston-salem",
+    "footnote",
+    "incendiary",
+    "innovation-quarter",
+    "innovation-quarter-park",
+    "krankies-factory",
+    "msg_seed_1",
+    "msg_seed_2",
+    "msg_seed_3",
+    "seed-coffee",
+    "seed-comment-1",
+    "seed-games",
+    "seed-greensboro",
+    "seed-interest-1",
+    "seed-interest-2",
+    "seed-profile-ana",
+    "seed-profile-jules",
+    "seed-profile-marco",
+    "seed-raleigh",
+    "seed-signal-coffee",
+    "seed-signal-games",
+    "seed-signal-outdoors",
+    "seed-study",
+    "seed-walk",
+    "web-user-local",
+    "west-end"
+  ]
+}

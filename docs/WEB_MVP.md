@@ -1,4 +1,4 @@
-# Web Companion MVP
+# Web Companion
 
 The current web companion surface is `apps/webapp`. Vicina’s product direction is
 web/mobile first for end users, with a desktop-usable development and operator
@@ -6,7 +6,7 @@ surface.
 
 ## Decision
 
-The Next.js App Router scaffold presents the smallest stable hyperlocal coordination
+The Next.js App Router workbench presents the smallest stable hyperlocal coordination
 loop and should remain the implementation reference while mobile and desktop
 surfaces build around the same contracts:
 
@@ -17,7 +17,7 @@ surfaces build around the same contracts:
 - View signal detail, interest, thread, report, and block actions at `/signal/[id]`.
 - See a simple local profile at `/profile`.
 
-The web app uses browser-local mock signal data in
+The web app uses browser-local signal data in
 `apps/webapp/src/lib/mock/signals.ts`. This keeps the interface testable before
 the web surface is wired to Supabase. The older local API route handlers remain
 available for reference while the signal model settles.
@@ -54,5 +54,5 @@ pnpm doctor
 ## Next Backend Cut
 
 Supabase is the intended backend foundation. When the web interaction model is
-stable, replace the browser-local mock store with a Supabase-backed adapter using
+stable, replace the browser-local store with a Supabase-backed adapter using
 the existing `supabase/migrations/20260502120000_vicina_mvp.sql` schema.

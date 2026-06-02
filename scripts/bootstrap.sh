@@ -10,7 +10,7 @@ ensure_root_files
 log "Installing workspace dependencies"
 run_in_root pnpm install
 
-log "Checking environment placeholders"
+log "Checking environment template values"
 run_in_root ./scripts/check-env.sh
 
 if have_cmd cargo; then

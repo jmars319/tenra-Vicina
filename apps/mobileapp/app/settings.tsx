@@ -24,7 +24,7 @@ export default function SettingsScreen() {
       <Section>
         <Text style={styles.sectionTitle}>Social mechanics</Text>
         <Text style={styles.body}>
-          The MVP intentionally avoids likes, follower counts, popularity ranking,
+          Vicina intentionally avoids likes, follower counts, popularity ranking,
           and infinite-scroll engagement loops. Threads live inside signals.
         </Text>
       </Section>

@@ -35,8 +35,11 @@
     "verify:web": "./scripts/verify-web.sh",
     "verify:desktop": "./scripts/verify-desktop.sh",
     "verify:mobile": "./scripts/verify-mobile.sh",
-    "verify:all": "./scripts/verify-all.sh",
-    "doctor": "./scripts/doctor.sh"
+    "verify:all": "./scripts/verify-all.sh && pnpm run audit:maintainability && pnpm run budget:bundle",
+    "doctor": "./scripts/doctor.sh",
+    "analyze:bundle": "node scripts/analyze-build.mjs",
+    "budget:bundle": "node scripts/analyze-build.mjs --strict",
+    "audit:maintainability": "node scripts/audit-maintainability.mjs --strict"
   },
   "devDependencies": {
     "@eslint/js": "9.39.4",

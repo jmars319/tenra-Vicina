@@ -2,7 +2,7 @@
 
 ## Apps
 
-- `apps/webapp`: Primary browser surface and current MVP implementation for the social coordination product.
+- `apps/webapp`: Primary browser surface and current local coordination workbench for the social coordination product.
 - `apps/mobileapp`: Future primary user surface for location-aware participation, posting, and lightweight review.
 - `apps/desktopapp`: Desktop development/operator Tauri surface with a React renderer and minimal Rust host. It supports local board review and import/export without making Vicina desktop-first.
 
@@ -23,4 +23,4 @@
 
 - `scripts/`: Root commands for bootstrap, development, package checks, verification, and doctor runs.
 - `docs/`: Short reference docs for contributors.
-- Version -1 prototype material has been retired from source control; preserve useful lessons in current package docs instead of restoring the old Vite/Firebase app.
+- Earlier product exploration material has been retired from source control; preserve useful lessons in current package docs instead of restoring the old Vite/Firebase app.
