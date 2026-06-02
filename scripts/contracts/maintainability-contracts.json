@@ -302,7 +302,7 @@
   },
   "tauriConfig": {
     "$schema": "https://schema.tauri.app/config/2",
-    "productName": "Vicina by tenra",
+    "productName": "Vicina by Tenra",
     "version": "0.1.0",
     "identifier": "co.tenra.vicina.desktopapp",
     "build": {
@@ -314,7 +314,7 @@
     "app": {
       "windows": [
         {
-          "title": "Vicina by tenra",
+          "title": "Vicina by Tenra",
           "width": 1200,
           "height": 840,
           "resizable": true

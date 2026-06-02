@@ -8,7 +8,7 @@ Runs as a complete workflow orchestration app with local workflow state, handoff
 
 ## Repository Path
 
-`independent/community/Vicina by tenra`
+`independent/community/Vicina by Tenra`
 
 ## Required Suite Dependencies
 

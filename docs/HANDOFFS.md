@@ -1,4 +1,4 @@
-# Vicina by tenra Handoffs
+# Vicina by Tenra Handoffs
 
 Vicina stays unique because it is a product-distinct hyperlocal coordination app with web/mobile-led participation.
 

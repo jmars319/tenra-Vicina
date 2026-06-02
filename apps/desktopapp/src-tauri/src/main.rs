@@ -5,7 +5,7 @@ use tauri::{
     Manager, Runtime,
 };
 
-const APP_NAME: &str = "Vicina by tenra";
+const APP_NAME: &str = "Vicina by Tenra";
 const MENU_SETTINGS: &str = "settings";
 const MENU_CLOSE_WINDOW: &str = "close-window";
 const MENU_QUIT: &str = "quit";
@@ -32,7 +32,7 @@ fn main() {
             }
         })
         .build(tauri::generate_context!())
-        .expect("failed to build Vicina by tenra desktopapp");
+        .expect("failed to build Vicina by Tenra desktopapp");
 
     app.run(|app_handle, event| match event {
         #[cfg(target_os = "macos")]

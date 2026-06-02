@@ -1,6 +1,6 @@
-# Vicina by tenra
+# Vicina by Tenra
 
-Vicina by tenra is an experimental local coordination system for seeing what is happening nearby. It is intentionally not a follower feed, popularity platform, or engagement-maximizing social app.
+Vicina by Tenra is an experimental local coordination system for seeing what is happening nearby. It is intentionally not a follower feed, popularity platform, or engagement-maximizing social app.
 
 The product direction is web and mobile led for end users, with a desktop surface retained for local review, board import/export, and operator workflows.
 
